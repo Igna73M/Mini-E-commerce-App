@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ProductPage from './components/ProductPage';
+import { useState } from "react";
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./LayoutFolder/Layout";
+import Home from "./components/Home";
+import ProductPage from "./components/ProductPage";
+import Contact from "./components/Contact";
 
 type CartItem = {
   name: string;
@@ -14,7 +16,7 @@ type CartItem = {
 function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
 
-  const handleAddToCart = (product: Omit<CartItem, 'quantity'>) => {
+  const handleAddToCart = (product: Omit<CartItem, "quantity">) => {
     setCart((prevCart) => {
       const found = prevCart.find((item) => item.name === product.name);
       if (found) {
@@ -34,18 +36,27 @@ function App() {
   };
 
   return (
-    <>
-      <Header />
-      <ProductPage
-        productsPageProps={ {
-          onAddToCart: handleAddToCart,
-          cart,
-          onRemoveFromCart: handleRemoveFromCart,
-        } }
-      />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path='products'
+            element={
+              <ProductPage
+                productsPageProps={{
+                  onAddToCart: handleAddToCart,
+                  cart,
+                  onRemoveFromCart: handleRemoveFromCart,
+                }}
+              />
+            }
+          />
+          <Route path='contact' element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;
