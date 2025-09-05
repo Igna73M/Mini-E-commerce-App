@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Mini E-Commerce App
 
-Currently, two official plugins are available:
+>A modern, responsive food e-commerce web application built with React, TypeScript, Vite, and Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 🛒 Add/remove products to/from cart with quantity controls
+- 🍰 Browse a variety of desserts and food items
+- 💳 Dynamic cart sidebar with order total and carbon-neutral delivery
+- 🔍 Responsive design for desktop and mobile
+- 🧩 Modular, reusable React components
+- 🌐 Routing with React Router (Home, Products, Contact)
+- 🎨 Styled with Tailwind CSS for a clean, modern look
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Screenshots
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+![Home Page](public/home-screen.jpg)
+![Product List](public/confirm-screen.jpg)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm (v9+ recommended)
+
+### Installation
+
+<br>
+
+1. Clone the repository:
+
+ ```bash
+ git clone https://github.com/Igna73M/Mini-E-commerce-App.git
+ cd Mini-E-commerce-App
+ ```
+
+2. Install dependencies:
+
+ ```bash
+ npm install
+ ```
+
+1. Start the development server:
+
+ ```bash
+ npm run dev
+ ```
+
+1. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Project Structure
+
+```
+├── public/
+│   └── images/           # Product images
+├── src/
+│   ├── components/       # React components (Card, Products, Aside, etc.)
+│   ├── LayoutFolder/     # Layout component (Header, Footer, Outlet)
+│   ├── App.tsx           # Main app entry
+│   └── ...
+├── tailwind.config.js    # Tailwind CSS config
+├── postcss.config.js     # PostCSS config
+├── package.json
+└── ...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Main Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Router](https://reactrouter.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Customization
+
+- Add or edit products in `src/components/Products.tsx`.
+- Update images in `public/images/`.
+- Adjust styles using Tailwind utility classes.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+Made with ❤️ by Igna73M

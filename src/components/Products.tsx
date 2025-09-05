@@ -64,11 +64,24 @@ interface Product {
   price: string;
 }
 
+interface CartItem {
+  name: string;
+  description: string;
+  price: string;
+  quantity: number;
+}
+
 type ProductsProps = {
   onAddToCart: (product: Product) => void;
+  onRemoveFromCart: (productName: string) => void;
+  cart: CartItem[];
 };
 
-function Products({ onAddToCart }: ProductsProps) {
+function Products({ onAddToCart, onRemoveFromCart, cart }: ProductsProps) {
+  const getQuantity = (name: string) => {
+    const found = cart.find((item) => item.name === name);
+    return found ? found.quantity : 0;
+  };
   return (
     <div className='h-full px-4'>
       <h1 className='text-center lg:text-left text-2xl font-bold lg:ml-5 my-5'>
@@ -82,7 +95,9 @@ function Products({ onAddToCart }: ProductsProps) {
             name={product.name}
             description={product.description}
             price={product.price}
+            quantity={getQuantity(product.name)}
             onAddToCart={() => onAddToCart(product)}
+            onRemoveFromCart={() => onRemoveFromCart(product.name)}
           />
         ))}
       </div>

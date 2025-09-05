@@ -1,29 +1,33 @@
-import Products from './Products';
-import Aside from './Aside';
+import Products from "./Products";
+import Aside from "./Aside";
 
 type CartItem = {
-    name: string;
-    description: string;
-    price: string;
-    quantity: number;
+  name: string;
+  description: string;
+  price: string;
+  quantity: number;
 };
 
 type ProductPageProps = {
-    productsPageProps: {
-        onAddToCart: (product: Omit<CartItem, 'quantity'>) => void;
-        cart: CartItem[];
-        onRemoveFromCart: (productName: string) => void;
-    }
+  productsPageProps: {
+    onAddToCart: (product: Omit<CartItem, "quantity">) => void;
+    cart: CartItem[];
+    onRemoveFromCart: (productName: string) => void;
+  };
 };
 
 function ProductPage({ productsPageProps }: ProductPageProps) {
-    const { onAddToCart, cart, onRemoveFromCart } = productsPageProps || {};
-    return (
-        <div className="flex py-6 flex-col lg:flex-row justify-center">
-            <Products onAddToCart={ onAddToCart } />
-            <Aside cart={ cart } onRemoveFromCart={ onRemoveFromCart } />
-        </div>
-    );
+  const { onAddToCart, cart, onRemoveFromCart } = productsPageProps || {};
+  return (
+    <div className='flex py-6 flex-col lg:flex-row justify-center'>
+      <Products
+        onAddToCart={onAddToCart}
+        cart={cart}
+        onRemoveFromCart={onRemoveFromCart}
+      />
+      <Aside cart={cart} onRemoveFromCart={onRemoveFromCart} />
+    </div>
+  );
 }
 
-export default ProductPage
+export default ProductPage;
