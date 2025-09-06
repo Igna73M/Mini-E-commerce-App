@@ -7,6 +7,7 @@ import ProductPage from "./components/ProductPage";
 import Contact from "./components/Contact";
 
 type CartItem = {
+  id: number;
   name: string;
   description: string;
   price: string;
@@ -18,10 +19,10 @@ function App() {
 
   const handleAddToCart = (product: Omit<CartItem, "quantity">) => {
     setCart((prevCart) => {
-      const found = prevCart.find((item) => item.name === product.name);
+      const found = prevCart.find((item) => item.id === product.id);
       if (found) {
         return prevCart.map((item) =>
-          item.name === product.name
+          item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -31,8 +32,16 @@ function App() {
     });
   };
 
-  const handleRemoveFromCart = (productName: string) => {
-    setCart((prevCart) => prevCart.filter((item) => item.name !== productName));
+  const handleRemoveFromCart = (productId: number) => {
+    setCart((prevCart) =>
+      prevCart
+        .map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
   };
 
   return (

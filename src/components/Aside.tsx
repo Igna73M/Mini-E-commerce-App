@@ -1,6 +1,7 @@
 import { LiaTimesCircle } from "react-icons/lia";
 
 interface CartItem {
+  id: number;
   name: string;
   description: string;
   price: string;
@@ -9,7 +10,7 @@ interface CartItem {
 
 interface AsideProps {
   cart: CartItem[];
-  onRemoveFromCart: (productName: string) => void;
+  onRemoveFromCart: (productId: number) => void;
 }
 
 function Aside({ cart, onRemoveFromCart }: AsideProps) {
@@ -57,7 +58,7 @@ function Aside({ cart, onRemoveFromCart }: AsideProps) {
                 </div>
                 <button
                   className='cursor-pointer text-red-500 ml-2'
-                  onClick={() => onRemoveFromCart(item.name)}
+                  onClick={() => onRemoveFromCart(item.id)}
                 >
                   <LiaTimesCircle className='text-2xl' />
                 </button>

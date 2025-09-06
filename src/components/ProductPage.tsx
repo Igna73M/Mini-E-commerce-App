@@ -2,6 +2,7 @@ import Products from "./Products";
 import Aside from "./Aside";
 
 type CartItem = {
+  id: number;
   name: string;
   description: string;
   price: string;
@@ -12,7 +13,7 @@ type ProductPageProps = {
   productsPageProps: {
     onAddToCart: (product: Omit<CartItem, "quantity">) => void;
     cart: CartItem[];
-    onRemoveFromCart: (productName: string) => void;
+    onRemoveFromCart: (productId: number) => void;
   };
 };
 

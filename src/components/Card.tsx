@@ -4,6 +4,7 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 interface CardProps {
+  id: number;
   image: string;
   name: string;
   description: string;
