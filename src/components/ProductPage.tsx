@@ -1,13 +1,7 @@
 import Products from "./Products";
 import Aside from "./Aside";
 
-type CartItem = {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  quantity: number;
-};
+import type { CartItem } from "../types/CartItem";
 
 type ProductPageProps = {
   productsPageProps: {

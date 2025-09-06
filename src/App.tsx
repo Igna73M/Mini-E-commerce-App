@@ -6,13 +6,7 @@ import Home from "./components/Home";
 import ProductPage from "./components/ProductPage";
 import Contact from "./components/Contact";
 
-type CartItem = {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  quantity: number;
-};
+import type { CartItem } from "./types/CartItem";
 
 function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
