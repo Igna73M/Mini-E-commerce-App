@@ -1,8 +1,8 @@
 import { LiaTimesCircle } from "react-icons/lia";
-import React, { useState } from "react";
 import OrderPopup from "./OrderPopup";
 
 import type { CartItem } from "../types/CartItem";
+import { useState } from "react";
 
 interface AsideProps {
   cart: CartItem[];
